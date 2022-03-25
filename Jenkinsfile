@@ -3,9 +3,9 @@ pipeline {
    agent any
     
    environment {
-      VALUE_ONE = '1'
-      VALUE_TWO = '2'
-      VALUE_THREE = '3'
+      IMPORT_RDDP = 'true'
+      UPDATE_DB = 'false'
+      EXECUTE_WTC = 'false'
    }
     
    stages {
@@ -22,14 +22,14 @@ pipeline {
       
             
       // Expression based when example with AND
-      stage('WHEN EXPRESSION with AND') {
+      stage('full deployment') {
          when {
             expression {
-               VALUE_ONE == '1' && VALUE_THREE == '3'
+               IMPORT_RDDP == 'true' && UPDATE_DB == 'true'
             }
          }
          steps {
-            echo 'WHEN with AND expression works!'
+            echo 'IMPORT_RDDP with UPDATE_DB expression works!'
          }
       
       
