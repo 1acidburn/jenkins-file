@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
+   def projects = readJSON file: "Projects.json"
    agent any
     
    environment {
