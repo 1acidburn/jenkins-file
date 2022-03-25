@@ -12,12 +12,14 @@ pipeline {
     options {
         timestamps()
     }
-   
+      node {
+         load "Projects.groovy"    
+      }
    stages {
    
       // skip a stage while creating the pipeline
       stage("Import Database operation") {
-            load "Projects.groovy"
+           
          when {
             expression { false }  //skip this stage
          }
