@@ -19,8 +19,8 @@ pipeline {
             steps {
                 script {
                     def envname = readJSON file: "version-manifest.json"
-                    element1 = "${envname.release_number}"
-                    echo element1
+                    //element1 = "${envname.release_number}"
+                    //echo element1
                 }
             } 
         }
