@@ -3,8 +3,7 @@ pipeline {
       agent any
     
    environment {
-      load "Projects.groovy"
-         IMPORT_RDDP = 'true'
+      IMPORT_RDDP = 'true'
       //UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
    }
@@ -13,7 +12,7 @@ pipeline {
     options {
         timestamps()
     }
-   
+   load "Projects.groovy"
    stages {
    
       // skip a stage while creating the pipeline
