@@ -20,16 +20,7 @@ pipeline {
          }
       }
       
-      // Execute when branch = 'master'
-      stage("BASIC WHEN - Branch") {
-         when {
-            branch 'master'
-	 }
-         steps {
-            echo 'BASIC WHEN - Master Branch!'
-         }
-      }
-      
+            
       // Expression based when example with AND
       stage('WHEN EXPRESSION with AND') {
          when {
