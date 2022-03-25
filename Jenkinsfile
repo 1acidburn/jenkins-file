@@ -11,12 +11,12 @@ pipeline {
    stages {
    
       // skip a stage while creating the pipeline
-      stage("A stage to be skipped") {
+      stage("Import Database operation") {
          when {
             expression { false }  //skip this stage
          }
          steps {
-            echo 'This step will never be run'
+            echo 'Import Database operation will never be run'
          }
       }
       
