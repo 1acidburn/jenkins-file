@@ -3,6 +3,7 @@ pipeline {
       agent any
     
    environment {
+         def config = readJSON file: 'Projects.json'
       IMPORT_RDDP = 'true'
       UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
