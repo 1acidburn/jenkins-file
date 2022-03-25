@@ -1,15 +1,8 @@
 #!/usr/bin/env groovy
-node {
-   load "Projects.json"
-   echo "${env.DB_URL}"
-   echo "${env.DB_URL2}"
-}
-
 pipeline {
       agent any
     
    environment {
-         load 'Projects.json'
       IMPORT_RDDP = 'true'
       UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
@@ -23,31 +16,17 @@ pipeline {
    stages {
    
       // skip a stage while creating the pipeline
-      stage("Import Database operation") {
+      stage("Import Database operation") { 
          when {
             expression { false }  //skip this stage
          }
          steps {
-          
+              
                echo 'Import Database operation will never be run'
          }
       }
       
-       // Expression based when example with AND
-      stage('UpdateDB') {
-         when {
-            expression {
-               UPDATE_DB == 'true'
-            }
-         }
-         steps {
-            echo 'Update_DB expression works!'
-         }
-      
-            }
-      
-            
-      // Expression based when example with AND
+       // Expression based when example
       stage('ImportRDDP') {
          when {
             expression {
@@ -55,7 +34,25 @@ pipeline {
             }
          }
          steps {
-            echo 'IMPORT_RDDP expression works!'
+               load "Projects.groovy" // load varables for RDDP
+               echo 'STARTING IMPORT DRRP OPERATION'
+               echo "${env.DB_URL}"
+               echo "${env.UPDATE_DB}"
+               echo "${env.DB_URL2}"
+         }
+      
+            }
+      
+            
+      // Expression based when example with AND
+      stage('UPDATEDB') {
+         when {
+            expression {
+               UPDATE_DB == 'true'
+            }
+         }
+         steps {
+            echo 'STARTING UPDATEDB OPERATION'
          }
       
             }
