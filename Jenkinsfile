@@ -37,21 +37,9 @@ pipeline {
             echo 'IMPORT_RDDP expression works!'
          }
       
-      
-      // Expression based when example with AND
-      stage('UpdadeDB') {
-         when {
-            expression {
-               UPDATE_DB == 'true'
-            }
-         }
-         steps {
-            echo 'UPDATE_DB expression works!'
-         }    
-      
+        
            
      
    }
    }
-}
 }
