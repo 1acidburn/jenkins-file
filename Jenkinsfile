@@ -1,6 +1,4 @@
 #!/usr/bin/env groovy
-node {
-
 pipeline {
      agent any
     
@@ -60,5 +58,4 @@ pipeline {
       
             }
    }
-}
 }
