@@ -4,7 +4,7 @@ pipeline {
     
    environment {
       IMPORT_RDDP = 'true'
-      //UPDATE_DB = 'true'
+      UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
    }
   
@@ -12,14 +12,11 @@ pipeline {
     options {
         timestamps()
     }
-      node {
-         load "Projects.groovy"    
-      }
+   
    stages {
    
       // skip a stage while creating the pipeline
-      stage("Import Database operation") {
-           
+      stage("Import Database operation") { 
          when {
             expression { false }  //skip this stage
          }
@@ -29,16 +26,16 @@ pipeline {
          }
       }
       
-       // Expression based when example with AND
-      stage('UpdateDB') {
+       // Expression based when example
+      stage('ImportRDDP') {
          when {
             expression {
-               ${env.UPDATE_DB} == 'true'
+               IMPORT_RDDP == 'true'
             }
          }
          steps {
-               //load "Projects.groovy"
-               echo 'Update_DB expression works!'
+               load "Projects.groovy" // load varables for RDDP
+               echo 'STARTING IMPORT DRRP OPERATION'
                echo "${env.DB_URL}"
                echo "${env.UPDATE_DB}"
                echo "${env.DB_URL2}"
@@ -48,14 +45,14 @@ pipeline {
       
             
       // Expression based when example with AND
-      stage('ImportRDDP') {
+      stage('UPDATEDB') {
          when {
             expression {
-               IMPORT_RDDP == 'true'
+               UPDATE_DB == 'true'
             }
          }
          steps {
-            echo 'IMPORT_RDDP expression works!'
+            echo 'STARTING UPDATEDB OPERATION'
          }
       
             }
