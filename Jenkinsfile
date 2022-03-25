@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
+      def envname = readJSON file: "version-manifest.json"
       agent any
     
    environment {
@@ -15,17 +16,7 @@ pipeline {
    
    stages {
    
-         stage('Json-Build') {
-            steps {
-                script {
-                    def envname = readJSON file: "version-manifest.json"
-                    //element1 = "${envname.release_number}"
-                    //echo element1
-                }
-            } 
-        }
-         
-         
+       
       // skip a stage while creating the pipeline
       stage("Import Database operation") { 
          when {
