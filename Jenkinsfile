@@ -1,4 +1,10 @@
 #!/usr/bin/env groovy
+node {
+   load "Projects.json"
+   echo "${env.DB_URL}"
+   echo "${env.DB_URL2}"
+}
+
 pipeline {
       agent any
     
