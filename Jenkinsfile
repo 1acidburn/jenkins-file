@@ -21,7 +21,7 @@ pipeline {
             expression { false }  //skip this stage
          }
          steps {
-          def projects = readJSON file: "Projects.json"
+          def projects = readJSON file: "Projects.json".
             echo 'Import Database operation will never be run'
          }
       }
