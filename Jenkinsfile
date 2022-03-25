@@ -1,7 +1,8 @@
 #!/usr/bin/env groovy
+node {
+
 pipeline {
-     def props = readProperties  file: 'my.properties'
-      agent any
+     agent any
     
    environment {
       IMPORT_RDDP = 'true'
@@ -59,4 +60,5 @@ pipeline {
       
             }
    }
+}
 }
