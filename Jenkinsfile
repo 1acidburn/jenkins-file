@@ -4,8 +4,8 @@ pipeline {
     
    environment {
       IMPORT_RDDP = 'true'
-      UPDATE_DB = 'false'
-      EXECUTE_WTC = 'false'
+      UPDATE_DB = 'true'
+      EXECUTE_WTC = 'true'
    }
     
    stages {
@@ -25,7 +25,7 @@ pipeline {
       stage('full deployment') {
          when {
             expression {
-               IMPORT_RDDP == 'true' && UPDATE_DB == 'true'
+               IMPORT_RDDP == 'true' && UPDATE_DB == 'true' && EXECUTE_WTC == 'true'
             }
          }
          steps {
