@@ -46,19 +46,7 @@ pipeline {
       }
       
            
-      // When - Not AnyOf Example
-      stage("Not AnyOf") {
-         when {
-            not {
-               anyOf {
-                  branch "development"
-                  environment name:'VALUE_TWO', value: '4'
-               }
-            }
-         }
-         steps {
-            echo "Not AnyOf - Works!"
-         }
-      }
+     
+   }
    }
 }
