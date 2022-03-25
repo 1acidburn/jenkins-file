@@ -7,7 +7,12 @@ pipeline {
       UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
    }
-    
+  
+   // using the Timestamper plugin we can add timestamps to the console log
+    options {
+        timestamps()
+    }
+   
    stages {
    
       // skip a stage while creating the pipeline
