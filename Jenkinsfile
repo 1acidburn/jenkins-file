@@ -1,14 +1,9 @@
 #!/usr/bin/env groovy
-node {
-   load "Projects.groovy"
-   echo "${env.DB_URL}"
-   echo "${env.DB_URL2}"
-}
-
 pipeline {
       agent any
     
    environment {
+      load "Projects.groovy"
       IMPORT_RDDP = 'true'
       UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
