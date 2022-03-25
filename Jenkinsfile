@@ -3,7 +3,6 @@ pipeline {
       agent any
     
    environment {
-      load "Projects.groovy"
       IMPORT_RDDP = 'true'
       UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
@@ -22,7 +21,7 @@ pipeline {
             expression { false }  //skip this stage
          }
          steps {
-          
+               load "Projects.groovy"
                echo 'Import Database operation will never be run'
          }
       }
