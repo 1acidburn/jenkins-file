@@ -3,8 +3,9 @@ pipeline {
       agent any
     
    environment {
-      IMPORT_RDDP = 'true'
-      UPDATE_DB = 'true'
+      load "Projects.groovy"
+         IMPORT_RDDP = 'true'
+      //UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
    }
   
@@ -30,11 +31,11 @@ pipeline {
       stage('UpdateDB') {
          when {
             expression {
-               UPDATE_DB == 'true'
+               ${env.UPDATE_DB} == 'true'
             }
          }
          steps {
-               load "Projects.groovy"
+               //load "Projects.groovy"
                echo 'Update_DB expression works!'
                echo "${env.DB_URL}"
                echo "${env.UPDATE_DB}"
