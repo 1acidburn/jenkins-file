@@ -21,7 +21,7 @@ pipeline {
             expression { false }  //skip this stage
          }
          steps {
-               load "Projects.groovy"
+              
                echo 'Import Database operation will never be run'
          }
       }
@@ -34,7 +34,10 @@ pipeline {
             }
          }
          steps {
-            echo 'Update_DB expression works!'
+               load "Projects.groovy"
+               echo 'Update_DB expression works!'
+               echo "${env.DB_URL}"
+               echo "${env.DB_URL2}"
          }
       
             }
