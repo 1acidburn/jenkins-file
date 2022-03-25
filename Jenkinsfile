@@ -21,6 +21,7 @@ pipeline {
             expression { false }  //skip this stage
          }
          steps {
+            projects = readJSON file: "${env.WORKSPACE}\\Projects.json"
             echo 'Import Database operation will never be run'
          }
       }
