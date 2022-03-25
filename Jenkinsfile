@@ -37,6 +37,7 @@ pipeline {
                load "Projects.groovy"
                echo 'Update_DB expression works!'
                echo "${env.DB_URL}"
+               echo "DB_URL"
                echo "${env.DB_URL2}"
          }
       
