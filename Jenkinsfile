@@ -27,7 +27,7 @@ pipeline {
       
             
       // Expression based when example with AND
-      stage('full deployment') {
+      stage('ImportRDDP') {
          when {
             expression {
                IMPORT_RDDP == 'true'
@@ -37,7 +37,16 @@ pipeline {
             echo 'IMPORT_RDDP expression works!'
          }
       
-        
+        // Expression based when example with AND
+      stage('UpdateDB') {
+         when {
+            expression {
+               UPDATE_DB == 'true'
+            }
+         }
+         steps {
+            echo 'UPDATE DB expression works!'
+         }
            
      
    }
