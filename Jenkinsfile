@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
-   def projects = readJSON file: "Projects.json"
-   agent any
+      agent any
     
    environment {
       IMPORT_RDDP = 'true'
@@ -22,7 +21,7 @@ pipeline {
             expression { false }  //skip this stage
          }
          steps {
-          
+          def projects = readJSON file: "Projects.json"
             echo 'Import Database operation will never be run'
          }
       }
