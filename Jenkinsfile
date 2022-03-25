@@ -4,7 +4,7 @@ pipeline {
     
    environment {
       IMPORT_RDDP = 'true'
-      UPDATE_DB = 'true'
+     // UPDATE_DB = 'true'
       EXECUTE_WTC = 'true'
    }
   
@@ -37,7 +37,7 @@ pipeline {
                load "Projects.groovy"
                echo 'Update_DB expression works!'
                echo "${env.DB_URL}"
-               echo "$DB_URL"
+               echo "$UPDATE_DB"
                echo "${env.DB_URL2}"
          }
       
