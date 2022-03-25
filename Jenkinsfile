@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 pipeline {
-      def envname = readJSON file: "version-manifest.json"
+     def props = readProperties  file: 'my.properties'
       agent any
     
    environment {
