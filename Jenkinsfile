@@ -33,17 +33,7 @@ pipeline {
          }
       }
       
-      // Expression based when example
-      stage('WHEN EXPRESSION with OR') {
-         when {
-            expression {
-               VALUE_ONE == '1' || VALUE_THREE == '2'
-            }
-         }
-         steps {
-            echo 'WHEN with OR expression works!'
-         }
-      
+          
       
            
      
