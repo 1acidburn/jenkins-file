@@ -15,6 +15,11 @@ pipeline {
    
    stages {
    
+        stage('Load global var') {
+            steps {
+                load "Projects.groovy" // load varables for RDDP
+            }
+        }
        
       // skip a stage while creating the pipeline
       stage("Import Database operation") { 
@@ -35,7 +40,6 @@ pipeline {
             }
          }
          steps {
-               load "Projects.groovy" // load varables for RDDP
                echo 'STARTING IMPORT DRRP OPERATION'
                echo "${env.DB_URL}"
                echo "${env.UPDATE_DB}"
